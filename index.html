@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Чек-лист: что проверить в ОСВ</title>
+
+<style>
+    :root {
+        --blue: #1769aa;
+        --blue-dark: #12548a;
+        --text: #222;
+        --muted: #666;
+        --border: #dddddd;
+        --bg-soft: #f5f7fa;
+        --tag-bg: #eef3f8;
+        --tag-text: #35556f;
+        --risk: #b42318;
+        --warning: #9a6700;
+        --ok: #087443;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        color: var(--text);
+        max-width: 920px;
+        margin: 30px auto;
+        padding: 0 20px 50px;
+        line-height: 1.5;
+        background: #ffffff;
+    }
+
+    h1 {
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .subtitle {
+        color: #555;
+        margin-bottom: 28px;
+        font-size: 16px;
+    }
+
+    .card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 22px;
+        margin-bottom: 18px;
+        background: #fff;
+    }
+
+    .card h2 {
+        font-size: 21px;
+        line-height: 1.3;
+        margin: 0 0 12px;
+    }
+
+    .accounts {
+        background: var(--bg-soft);
+        padding: 10px 12px;
+        border-radius: 7px;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .industry-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .industry-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: #555;
+        margin-right: 2px;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: var(--tag-bg);
+        color: var(--tag-text);
+        font-size: 13px;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    .question {
+        margin-top: 12px;
+    }
+
+    .status {
+        margin-top: 17px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .status label {
+        cursor: pointer;
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 74px;
+        margin-top: 15px;
+        border: 1px solid #ccc;
+        border-radius: 7px;
+        padding: 10px;
+        font-family: inherit;
+        font-size: 14px;
+        resize: vertical;
+    }
+
+    .actions {
+        margin-top: 26px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    button {
+        background: var(--blue);
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 7px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    button:hover {
+        background: var(--blue-dark);
+    }
+
+    .secondary {
+        background: #5f6b76;
+    }
+
+    .secondary:hover {
+        background: #4d5760;
+    }
+
+    .result {
+        margin-top: 26px;
+        padding: 22px;
+        background: #f7f7f7;
+        border-radius: 10px;
+    }
+
+    .result h2 {
+        margin-top: 0;
+    }
+
+    .risk {
+        color: var(--risk);
+        font-weight: 700;
+    }
+
+    .warning {
+        color: var(--warning);
+        font-weight: 700;
+    }
+
+    .ok {
+        color: var(--ok);
+        font-weight: 700;
+    }
+
+    .result-item {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid #ddd;
+    }
+
+    .result-item:first-of-type {
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .print-title {
+        display: none;
+    }
+
+    @media print {
+        body {
+            max-width: none;
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        .actions {
+            display: none;
+        }
+
+        .subtitle {
+            margin-bottom: 15px;
+        }
+
+        .card {
+            break-inside: avoid;
+            page-break-inside: avoid;
+            border: 1px solid #aaa;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        textarea {
+            border: 1px solid #aaa;
+            min-height: 55px;
+        }
+
+        .tag {
+            border: 1px solid #aaa;
+            background: white;
+            color: #333;
+        }
+
+        .result {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Чек-лист CFO: что проверить в ОСВ</h1>
+
+<div class="subtitle">
+    Добавьте к привычному просмотру ОСВ после закрытия месяца несколько перекрестных проверок.
+    Они помогут заметить сочетания показателей, которые по отдельности выглядят нормально,
+    но вместе могут сигнализировать о проблеме.
+</div>
+
+
+<div id="checklist">
+
+    <!-- 1 -->
+    <div class="card" data-title="Треугольник ликвидности">
+        <h2>1. Треугольник ликвидности</h2>
+
+        <div class="accounts">
+            <strong>Смотрите счета:</strong> 10, 41, 43, 60.01, 62.01, 90.01, 51
+        </div>
+
+        <div class="industry-row">
+            <span class="industry-label">Чаще встречается:</span>
+            <span class="tag">Торговля</span>
+            <span class="tag">Дистрибуция</span>
+            <span class="tag">Производство</span>
+            <span class="tag">Опт</span>
+        </div>
+
+        <p>
+            Проверьте, не растут ли запасы и дебиторская задолженность быстрее выручки
+            и компенсирует ли этот рост кредиторская задолженность.
+        </p>
+
+        <p class="question">
+            <strong>Вопрос:</strong> почему каждый новый рубль выручки требует больше оборотного капитала, чем раньше?
+        </p>
+
+        <div class="status">
+            <label><input type="radio" name="s1" value="ok"> Норма</label>
+            <label><input type="radio" name="s1" value="warning"> Требует проверки</label>
+            <label><input type="radio" name="s1" value="risk"> Риск</label>
+        </div>
+
+        <textarea placeholder="Комментарий"></textarea>
+    </div>
+
+
+    <!-- 2 -->
+    <div class="card" data-title="Качели ликвидности">
+        <h2>2. Качели ликвидности</h2>
+
+        <div class="accounts">
+            <strong>Смотрите счета:</strong> 01, 07, 08, 60, 76, 66, 67
+        </div>
+
+        <div class="industry-row">
+            <span class="industry-label">Чаще встречается:</span>
+            <span class="tag">Производство</span>
+            <span class="tag">Строительство</span>
+            <span class="tag">Добыча</span>
+            <span class="tag">Транспорт</span>
+            <span class="tag">Логистика</span>
+        </div>
+
+        <p>
+            Проверьте, не финансирует ли компания долгосрочные активы за счет обязательств,
+            которые придется погасить раньше, чем актив начнет приносить денежный эффект.
+        </p>
+
+        <p class="question">
+            <strong>Вопрос:</strong> не придется ли возвращать финансирование раньше,
+            чем актив начнет генерировать деньги?
+        </p>
+
+        <div class="status">
+            <label><input type="radio" name="s2" value="ok"> Норма</label>
+            <label><input type="radio" name="s2" value="warning"> Требует проверки</label>
+            <label><input type="radio" name="s2" value="risk"> Риск</label>
+        </div>
+
+        <textarea placeholder="Комментарий"></textarea>
+    </div>
+
+
+    <!-- 3 -->
+    <div class="card" data-title="Петля обязательств">
+        <h2>3. Петля обязательств</h2>
+
+        <div class="accounts">
+            <strong>Смотрите счета:</strong> 51, 60, 66, 67, 68, 69, 70
+        </div>
+
+        <div class="industry-row">
+            <span class="industry-label">Чаще встречается:</span>
+            <span class="tag">Торговля</span>
+            <span class="tag">Дистрибуция</span>
+            <span class="tag">Строительство</span>
+            <span class="tag">Подрядный бизнес</span>
+            <span class="tag">Сезонный бизнес</span>
+        </div>
+
+        <p>
+            Проверьте, не закрывает ли компания налоги, зарплату, поставщиков и банковские платежи
+            только после очередного крупного поступления.
+        </p>
+
+        <p class="question">
+            <strong>Вопрос:</strong> сколько дней компания сможет выполнять обязательства,
+            если следующее крупное поступление сдвинется?
+        </p>
+
+        <div class="status">
+            <label><input type="radio" name="s3" value="ok"> Норма</label>
+            <label><input type="radio" name="s3" value="warning"> Требует проверки</label>
+            <label><input type="radio" name="s3" value="risk"> Риск</label>
+        </div>
+
+        <textarea placeholder="Комментарий"></textarea>
+    </div>
+
+
+    <!-- 4 -->
+    <div class="card" data-title="Налоговые ножницы">
+        <h2>4. Налоговые ножницы</h2>
+
+        <div class="accounts">
+            <strong>Смотрите счета:</strong> 60.02, 62.02, 68 и субсчета учета НДС по авансам
+        </div>
+
+        <div class="industry-row">
+            <span class="industry-label">Чаще встречается:</span>
+            <span class="tag">Строительство</span>
+            <span class="tag">Проектный бизнес</span>
+            <span class="tag">Производство под заказ</span>
+            <span class="tag">Поставка оборудования</span>
+        </div>
+
+        <p>
+            Проверьте, по каким полученным авансам НДС уже начислен и по каким выданным авансам
+            встречный вычет еще не заявлен.
+        </p>
+
+        <p class="question">
+            <strong>Вопрос:</strong> сколько собственной ликвидности компания временно отвлекла
+            из-за несовпадения начисления и вычета НДС?
+        </p>
+
+        <div class="status">
+            <label><input type="radio" name="s4" value="ok"> Норма</label>
+            <label><input type="radio" name="s4" value="warning"> Требует проверки</label>
+            <label><input type="radio" name="s4" value="risk"> Риск</label>
+        </div>
+
+        <textarea placeholder="Комментарий"></textarea>
+    </div>
+
+
+    <!-- 5 -->
+    <div class="card" data-title="Воронка незавершенки">
+        <h2>5. Воронка незавершенки</h2>
+
+        <div class="accounts">
+            <strong>Смотрите счета:</strong> 20, 23, 25, 26, 43, 90.02
+        </div>
+
+        <div class="industry-row">
+            <span class="industry-label">Чаще встречается:</span>
+            <span class="tag">Производство</span>
+            <span class="tag">Строительство</span>
+            <span class="tag">Инжиниринг</span>
+            <span class="tag">Ремонт</span>
+            <span class="tag">Проектный бизнес</span>
+        </div>
+
+        <p>
+            Проверьте, не растет ли НЗП быстрее выпуска и действительно ли накопленные затраты
+            относятся к заказам, которые продолжают двигаться к завершению.
+        </p>
+
+        <p class="question">
+            <strong>Вопрос:</strong> какие суммы уже вложены в незавершенные заказы
+            и когда они превратятся в готовую продукцию, закрытый этап работ или выручку?
+        </p>
+
+        <div class="status">
+            <label><input type="radio" name="s5" value="ok"> Норма</label>
+            <label><input type="radio" name="s5" value="warning"> Требует проверки</label>
+            <label><input type="radio" name="s5" value="risk"> Риск</label>
+        </div>
+
+        <textarea placeholder="Комментарий"></textarea>
+    </div>
+
+
+    <!-- 6 -->
+    <div class="card" data-title="Лифт прибыли">
+        <h2>6. Лифт прибыли</h2>
+
+        <div class="accounts">
+            <strong>Смотрите счета:</strong> 04, 08, 97, 20, 26, 44, 90.02, 99
+        </div>
+
+        <div class="industry-row">
+            <span class="industry-label">Чаще встречается:</span>
+            <span class="tag">IT</span>
+            <span class="tag">Телеком</span>
+            <span class="tag">Технологические компании</span>
+            <span class="tag">Производство</span>
+            <span class="tag">R&D</span>
+        </div>
+
+        <p>
+            Проверьте, не сократились ли расходы периода одновременно с ростом активов,
+            хотя компания продолжает тратить сопоставимые суммы на разработку и проекты.
+        </p>
+
+        <p class="question">
+            <strong>Вопрос:</strong> прибыль выросла благодаря улучшению бизнеса
+            или потому, что часть затрат перенесли на будущие периоды?
+        </p>
+
+        <div class="status">
+            <label><input type="radio" name="s6" value="ok"> Норма</label>
+            <label><input type="radio" name="s6" value="warning"> Требует проверки</label>
+            <label><input type="radio" name="s6" value="risk"> Риск</label>
+        </div>
+
+        <textarea placeholder="Комментарий"></textarea>
+    </div>
+
+</div>
+
+
+<div class="actions">
+    <button onclick="generateReport()">Сформировать отчет</button>
+    <button class="secondary" onclick="window.print()">Распечатать / сохранить в PDF</button>
+</div>
+
+
+<div class="result" id="result">
+    Отметьте результаты проверки и нажмите «Сформировать отчет».
+</div>
+
+
+<script>
+function generateReport() {
+
+    const cards = document.querySelectorAll(".card");
+
+    let risk = 0;
+    let warning = 0;
+    let ok = 0;
+    let checkedCount = 0;
+
+    let details = "";
+
+    cards.forEach(card => {
+
+        const checked = card.querySelector("input[type=radio]:checked");
+        const textarea = card.querySelector("textarea");
+        const title = card.dataset.title;
+
+        if (!checked) {
+            return;
+        }
+
+        checkedCount++;
+
+        let statusText = "";
+        let statusClass = "";
+
+        if (checked.value === "risk") {
+            risk++;
+            statusText = "Риск";
+            statusClass = "risk";
+        }
+
+        if (checked.value === "warning") {
+            warning++;
+            statusText = "Требует проверки";
+            statusClass = "warning";
+        }
+
+        if (checked.value === "ok") {
+            ok++;
+            statusText = "Норма";
+            statusClass = "ok";
+        }
+
+        details += `
+            <div class="result-item">
+                <strong>${title}</strong><br>
+                Статус: <span class="${statusClass}">${statusText}</span>
+                ${
+                    textarea.value.trim()
+                    ? `<br>Комментарий: ${escapeHtml(textarea.value.trim())}`
+                    : ""
+                }
+            </div>
+        `;
+    });
+
+
+    let conclusion = "";
+
+    if (risk > 0) {
+        conclusion = `
+            <p>
+                <strong>Приоритет:</strong> сначала разберите участки со статусом «Риск»,
+                затем — сочетания, которые требуют дополнительной проверки.
+            </p>
+        `;
+    } else if (warning > 0) {
+        conclusion = `
+            <p>
+                <strong>Приоритет:</strong> явных рисков по чек-листу не отмечено,
+                но отдельные участки требуют дополнительного анализа.
+            </p>
+        `;
+    } else if (checkedCount > 0) {
+        conclusion = `
+            <p>
+                По отмеченным участкам явных отклонений не выявлено.
+            </p>
+        `;
+    } else {
+        conclusion = `
+            <p>
+                Сначала отметьте статус хотя бы по одному пункту.
+            </p>
+        `;
+    }
+
+
+    document.getElementById("result").innerHTML = `
+        <h2>Результат проверки ОСВ</h2>
+
+        <p class="risk">Риски: ${risk}</p>
+        <p class="warning">Требуют проверки: ${warning}</p>
+        <p class="ok">Без отклонений: ${ok}</p>
+
+        ${conclusion}
+
+        ${details}
+    `;
+}
+
+
+function escapeHtml(text) {
+    return text
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+</script>
+
+</body>
+</html>
