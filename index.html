@@ -74,7 +74,7 @@
         flex-wrap: wrap;
         gap: 7px;
         align-items: center;
-        margin-bottom: 15px;
+        margin-bottom: 16px;
     }
 
     .industry-label {
@@ -95,15 +95,46 @@
         white-space: nowrap;
     }
 
-    .question {
-        margin-top: 12px;
+    .check-title {
+        font-weight: 700;
+        margin: 0 0 8px;
+    }
+
+    .check-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 8px;
+    }
+
+    .check-list li {
+        margin-bottom: 9px;
+    }
+
+    .check-list label {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        cursor: pointer;
+    }
+
+    .check-list input[type="checkbox"] {
+        margin-top: 5px;
+        flex: 0 0 auto;
     }
 
     .status {
-        margin-top: 17px;
+        margin-top: 18px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
+    }
+
+    .status-title {
+        width: 100%;
+        font-weight: 700;
+        margin-bottom: -3px;
     }
 
     .status label {
@@ -188,8 +219,9 @@
         padding-top: 0;
     }
 
-    .print-title {
-        display: none;
+    .result-checks {
+        margin: 7px 0 0 18px;
+        padding: 0;
     }
 
     @media print {
@@ -248,7 +280,7 @@
 
 <div id="checklist">
 
-    <!-- 1 -->
+    <!-- 1. Треугольник ликвидности -->
     <div class="card" data-title="Треугольник ликвидности">
         <h2>1. Треугольник ликвидности</h2>
 
@@ -264,16 +296,33 @@
             <span class="tag">Опт</span>
         </div>
 
-        <p>
-            Проверьте, не растут ли запасы и дебиторская задолженность быстрее выручки
-            и компенсирует ли этот рост кредиторская задолженность.
-        </p>
+        <div class="check-title">Что проверить</div>
 
-        <p class="question">
-            <strong>Вопрос:</strong> почему каждый новый рубль выручки требует больше оборотного капитала, чем раньше?
-        </p>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Сравните темпы роста выручки, запасов и дебиторской задолженности за несколько периодов.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Проверьте, компенсирует ли рост кредиторской задолженности увеличение запасов и дебиторки.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Определите, не требует ли каждый новый рубль выручки больше оборотного финансирования, чем раньше.</span>
+                </label>
+            </li>
+        </ul>
 
         <div class="status">
+            <div class="status-title">Результат проверки</div>
             <label><input type="radio" name="s1" value="ok"> Норма</label>
             <label><input type="radio" name="s1" value="warning"> Требует проверки</label>
             <label><input type="radio" name="s1" value="risk"> Риск</label>
@@ -283,7 +332,7 @@
     </div>
 
 
-    <!-- 2 -->
+    <!-- 2. Качели ликвидности -->
     <div class="card" data-title="Качели ликвидности">
         <h2>2. Качели ликвидности</h2>
 
@@ -300,17 +349,33 @@
             <span class="tag">Логистика</span>
         </div>
 
-        <p>
-            Проверьте, не финансирует ли компания долгосрочные активы за счет обязательств,
-            которые придется погасить раньше, чем актив начнет приносить денежный эффект.
-        </p>
+        <div class="check-title">Что проверить</div>
 
-        <p class="question">
-            <strong>Вопрос:</strong> не придется ли возвращать финансирование раньше,
-            чем актив начнет генерировать деньги?
-        </p>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Сопоставьте рост вложений в долгосрочные активы с ростом краткосрочных кредитов, лизинга и задолженности перед подрядчиками.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Сравните сроки погашения обязательств со сроком ввода актива в эксплуатацию.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Проверьте, начнет ли актив генерировать денежный поток до того, как компании придется возвращать финансирование.</span>
+                </label>
+            </li>
+        </ul>
 
         <div class="status">
+            <div class="status-title">Результат проверки</div>
             <label><input type="radio" name="s2" value="ok"> Норма</label>
             <label><input type="radio" name="s2" value="warning"> Требует проверки</label>
             <label><input type="radio" name="s2" value="risk"> Риск</label>
@@ -320,7 +385,7 @@
     </div>
 
 
-    <!-- 3 -->
+    <!-- 3. Петля обязательств -->
     <div class="card" data-title="Петля обязательств">
         <h2>3. Петля обязательств</h2>
 
@@ -337,17 +402,33 @@
             <span class="tag">Сезонный бизнес</span>
         </div>
 
-        <p>
-            Проверьте, не закрывает ли компания налоги, зарплату, поставщиков и банковские платежи
-            только после очередного крупного поступления.
-        </p>
+        <div class="check-title">Что проверить</div>
 
-        <p class="question">
-            <strong>Вопрос:</strong> сколько дней компания сможет выполнять обязательства,
-            если следующее крупное поступление сдвинется?
-        </p>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Посмотрите, не переносятся ли платежи поставщикам, налогам и другим обязательствам систематически на последние допустимые даты.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Сопоставьте даты крупных поступлений с датами погашения обязательств и определите, какие платежи зависят от конкретного клиента или банковского транша.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Оцените, сможет ли компания пройти следующий платежный цикл, если крупное поступление сдвинется.</span>
+                </label>
+            </li>
+        </ul>
 
         <div class="status">
+            <div class="status-title">Результат проверки</div>
             <label><input type="radio" name="s3" value="ok"> Норма</label>
             <label><input type="radio" name="s3" value="warning"> Требует проверки</label>
             <label><input type="radio" name="s3" value="risk"> Риск</label>
@@ -357,7 +438,7 @@
     </div>
 
 
-    <!-- 4 -->
+    <!-- 4. Налоговые ножницы -->
     <div class="card" data-title="Налоговые ножницы">
         <h2>4. Налоговые ножницы</h2>
 
@@ -373,17 +454,33 @@
             <span class="tag">Поставка оборудования</span>
         </div>
 
-        <p>
-            Проверьте, по каким полученным авансам НДС уже начислен и по каким выданным авансам
-            встречный вычет еще не заявлен.
-        </p>
+        <div class="check-title">Что проверить</div>
 
-        <p class="question">
-            <strong>Вопрос:</strong> сколько собственной ликвидности компания временно отвлекла
-            из-за несовпадения начисления и вычета НДС?
-        </p>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Сопоставьте полученные и выданные авансы по крупным контрактам.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Проверьте, по каким полученным авансам НДС уже начислен, а по выданным авансам встречный вычет еще не заявлен.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Рассчитайте сумму НДС, которую компания временно финансирует из собственных средств, и срок такого отвлечения ликвидности.</span>
+                </label>
+            </li>
+        </ul>
 
         <div class="status">
+            <div class="status-title">Результат проверки</div>
             <label><input type="radio" name="s4" value="ok"> Норма</label>
             <label><input type="radio" name="s4" value="warning"> Требует проверки</label>
             <label><input type="radio" name="s4" value="risk"> Риск</label>
@@ -393,7 +490,7 @@
     </div>
 
 
-    <!-- 5 -->
+    <!-- 5. Воронка незавершенки -->
     <div class="card" data-title="Воронка незавершенки">
         <h2>5. Воронка незавершенки</h2>
 
@@ -410,17 +507,33 @@
             <span class="tag">Проектный бизнес</span>
         </div>
 
-        <p>
-            Проверьте, не растет ли НЗП быстрее выпуска и действительно ли накопленные затраты
-            относятся к заказам, которые продолжают двигаться к завершению.
-        </p>
+        <div class="check-title">Что проверить</div>
 
-        <p class="question">
-            <strong>Вопрос:</strong> какие суммы уже вложены в незавершенные заказы
-            и когда они превратятся в готовую продукцию, закрытый этап работ или выручку?
-        </p>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Сравните динамику НЗП с выпуском продукции, закрытыми этапами работ и обычной продолжительностью производственного цикла.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Раскройте существенные остатки по заказам или проектам и определите, какие из них превышают нормативный срок завершения.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Отделите реальные производственные проблемы от учетных: проверьте документы выпуска, аналитику по объектам учета и корректность распределения расходов.</span>
+                </label>
+            </li>
+        </ul>
 
         <div class="status">
+            <div class="status-title">Результат проверки</div>
             <label><input type="radio" name="s5" value="ok"> Норма</label>
             <label><input type="radio" name="s5" value="warning"> Требует проверки</label>
             <label><input type="radio" name="s5" value="risk"> Риск</label>
@@ -430,7 +543,7 @@
     </div>
 
 
-    <!-- 6 -->
+    <!-- 6. Лифт прибыли -->
     <div class="card" data-title="Лифт прибыли">
         <h2>6. Лифт прибыли</h2>
 
@@ -447,17 +560,33 @@
             <span class="tag">R&D</span>
         </div>
 
-        <p>
-            Проверьте, не сократились ли расходы периода одновременно с ростом активов,
-            хотя компания продолжает тратить сопоставимые суммы на разработку и проекты.
-        </p>
+        <div class="check-title">Что проверить</div>
 
-        <p class="question">
-            <strong>Вопрос:</strong> прибыль выросла благодаря улучшению бизнеса
-            или потому, что часть затрат перенесли на будущие периоды?
-        </p>
+        <ul class="check-list">
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Сравните динамику текущих расходов и остатков по счетам 04, 08 и 97.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Проверьте, не начали ли одинаковые по экономическому содержанию затраты капитализировать вместо списания в расходы периода.</span>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    <input type="checkbox">
+                    <span>Оцените, какую часть роста прибыли обеспечили операционные улучшения, а какую — перенос затрат на будущие периоды.</span>
+                </label>
+            </li>
+        </ul>
 
         <div class="status">
+            <div class="status-title">Результат проверки</div>
             <label><input type="radio" name="s6" value="ok"> Норма</label>
             <label><input type="radio" name="s6" value="warning"> Требует проверки</label>
             <label><input type="radio" name="s6" value="risk"> Риск</label>
@@ -476,11 +605,12 @@
 
 
 <div class="result" id="result">
-    Отметьте результаты проверки и нажмите «Сформировать отчет».
+    Выполните проверки, отметьте результат по каждому блоку и нажмите «Сформировать отчет».
 </div>
 
 
 <script>
+
 function generateReport() {
 
     const cards = document.querySelectorAll(".card");
@@ -494,11 +624,11 @@ function generateReport() {
 
     cards.forEach(card => {
 
-        const checked = card.querySelector("input[type=radio]:checked");
+        const checkedStatus = card.querySelector('input[type="radio"]:checked');
         const textarea = card.querySelector("textarea");
         const title = card.dataset.title;
 
-        if (!checked) {
+        if (!checkedStatus) {
             return;
         }
 
@@ -507,31 +637,61 @@ function generateReport() {
         let statusText = "";
         let statusClass = "";
 
-        if (checked.value === "risk") {
+        if (checkedStatus.value === "risk") {
             risk++;
             statusText = "Риск";
             statusClass = "risk";
         }
 
-        if (checked.value === "warning") {
+        if (checkedStatus.value === "warning") {
             warning++;
             statusText = "Требует проверки";
             statusClass = "warning";
         }
 
-        if (checked.value === "ok") {
+        if (checkedStatus.value === "ok") {
             ok++;
             statusText = "Норма";
             statusClass = "ok";
         }
 
+        const selectedChecks = [];
+
+        card.querySelectorAll('.check-list input[type="checkbox"]:checked')
+            .forEach(checkbox => {
+                const text = checkbox
+                    .closest("label")
+                    .querySelector("span")
+                    .textContent
+                    .trim();
+
+                selectedChecks.push(text);
+            });
+
+        let checksHtml = "";
+
+        if (selectedChecks.length > 0) {
+            checksHtml = `
+                <div>
+                    <strong>Выполнено проверок:</strong>
+                    <ul class="result-checks">
+                        ${selectedChecks.map(item => `<li>${escapeHtml(item)}</li>`).join("")}
+                    </ul>
+                </div>
+            `;
+        }
+
         details += `
             <div class="result-item">
-                <strong>${title}</strong><br>
-                Статус: <span class="${statusClass}">${statusText}</span>
+                <strong>${escapeHtml(title)}</strong><br>
+                Статус:
+                <span class="${statusClass}">${statusText}</span>
+
+                ${checksHtml}
+
                 ${
                     textarea.value.trim()
-                    ? `<br>Комментарий: ${escapeHtml(textarea.value.trim())}`
+                    ? `<div><strong>Комментарий:</strong> ${escapeHtml(textarea.value.trim())}</div>`
                     : ""
                 }
             </div>
@@ -544,27 +704,29 @@ function generateReport() {
     if (risk > 0) {
         conclusion = `
             <p>
-                <strong>Приоритет:</strong> сначала разберите участки со статусом «Риск»,
-                затем — сочетания, которые требуют дополнительной проверки.
+                <strong>Приоритет:</strong>
+                сначала разберите участки со статусом «Риск»,
+                затем — сочетания показателей, которые требуют дополнительной проверки.
             </p>
         `;
     } else if (warning > 0) {
         conclusion = `
             <p>
-                <strong>Приоритет:</strong> явных рисков по чек-листу не отмечено,
+                <strong>Приоритет:</strong>
+                явных рисков по чек-листу не отмечено,
                 но отдельные участки требуют дополнительного анализа.
             </p>
         `;
     } else if (checkedCount > 0) {
         conclusion = `
             <p>
-                По отмеченным участкам явных отклонений не выявлено.
+                По отмеченным участкам существенных отклонений не выявлено.
             </p>
         `;
     } else {
         conclusion = `
             <p>
-                Сначала отметьте статус хотя бы по одному пункту.
+                Отметьте результат хотя бы по одному блоку.
             </p>
         `;
     }
@@ -575,7 +737,7 @@ function generateReport() {
 
         <p class="risk">Риски: ${risk}</p>
         <p class="warning">Требуют проверки: ${warning}</p>
-        <p class="ok">Без отклонений: ${ok}</p>
+        <p class="ok">Без существенных отклонений: ${ok}</p>
 
         ${conclusion}
 
@@ -592,6 +754,7 @@ function escapeHtml(text) {
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
 }
+
 </script>
 
 </body>
