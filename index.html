@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Чек-лист: что проверить в ОСВ</title>
+<title>Чек-лист CFO: что проверить в ОСВ</title>
 
 <style>
     :root {
@@ -25,60 +25,69 @@
         box-sizing: border-box;
     }
 
+    html,
     body {
-        font-family: Arial, sans-serif;
-        color: var(--text);
-        max-width: 920px;
-        margin: 30px auto;
-        padding: 0 20px 50px;
-        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        width: 100%;
         background: #ffffff;
     }
 
+    body {
+        font-family: Arial, sans-serif;
+        color: var(--text);
+        max-width: 757px;
+        margin: 0 auto;
+        padding: 20px 18px 40px;
+        line-height: 1.5;
+        font-size: 15px;
+    }
+
     h1 {
-        font-size: 30px;
+        font-size: 26px;
         line-height: 1.2;
-        margin-bottom: 12px;
+        margin: 0 0 10px;
     }
 
     .subtitle {
         color: #555;
-        margin-bottom: 28px;
-        font-size: 16px;
+        margin-bottom: 22px;
+        font-size: 15px;
     }
 
     .card {
+        width: 100%;
         border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 22px;
-        margin-bottom: 18px;
-        background: #fff;
+        border-radius: 10px;
+        padding: 18px;
+        margin-bottom: 16px;
+        background: #ffffff;
     }
 
     .card h2 {
-        font-size: 21px;
+        font-size: 20px;
         line-height: 1.3;
-        margin: 0 0 12px;
+        margin: 0 0 11px;
     }
 
     .accounts {
         background: var(--bg-soft);
-        padding: 10px 12px;
+        padding: 9px 11px;
         border-radius: 7px;
         font-size: 14px;
-        margin-bottom: 12px;
+        margin-bottom: 11px;
     }
 
     .industry-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 7px;
+        gap: 6px;
         align-items: center;
-        margin-bottom: 16px;
+        margin-bottom: 14px;
     }
 
     .industry-label {
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 700;
         color: #555;
         margin-right: 2px;
@@ -86,12 +95,12 @@
 
     .tag {
         display: inline-block;
-        padding: 5px 9px;
+        padding: 4px 8px;
         border-radius: 999px;
         background: var(--tag-bg);
         color: var(--tag-text);
-        font-size: 13px;
-        line-height: 1.2;
+        font-size: 12px;
+        line-height: 1.25;
         white-space: nowrap;
     }
 
@@ -103,7 +112,7 @@
     .check-list {
         list-style: none;
         padding: 0;
-        margin: 0 0 8px;
+        margin: 0;
     }
 
     .check-list li {
@@ -123,51 +132,52 @@
     }
 
     .status {
-        margin-top: 18px;
-        padding-top: 15px;
-        border-top: 1px solid #eee;
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px solid #eeeeee;
         display: flex;
         flex-wrap: wrap;
-        gap: 14px;
+        gap: 10px 14px;
     }
 
     .status-title {
         width: 100%;
         font-weight: 700;
-        margin-bottom: -3px;
+        margin-bottom: -2px;
     }
 
     .status label {
         cursor: pointer;
+        font-size: 14px;
     }
 
     textarea {
         width: 100%;
-        min-height: 74px;
-        margin-top: 15px;
-        border: 1px solid #ccc;
+        min-height: 70px;
+        margin-top: 14px;
+        border: 1px solid #cccccc;
         border-radius: 7px;
-        padding: 10px;
+        padding: 9px;
         font-family: inherit;
         font-size: 14px;
         resize: vertical;
     }
 
     .actions {
-        margin-top: 26px;
+        margin-top: 22px;
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px;
     }
 
     button {
         background: var(--blue);
-        color: white;
+        color: #ffffff;
         border: none;
-        padding: 12px 18px;
+        padding: 11px 15px;
         border-radius: 7px;
         cursor: pointer;
-        font-size: 15px;
+        font-size: 14px;
     }
 
     button:hover {
@@ -183,14 +193,15 @@
     }
 
     .result {
-        margin-top: 26px;
-        padding: 22px;
+        margin-top: 22px;
+        padding: 18px;
         background: #f7f7f7;
-        border-radius: 10px;
+        border-radius: 9px;
     }
 
     .result h2 {
         margin-top: 0;
+        font-size: 20px;
     }
 
     .risk {
@@ -209,9 +220,9 @@
     }
 
     .result-item {
-        margin-top: 14px;
-        padding-top: 14px;
-        border-top: 1px solid #ddd;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid #dddddd;
     }
 
     .result-item:first-of-type {
@@ -220,8 +231,35 @@
     }
 
     .result-checks {
-        margin: 7px 0 0 18px;
+        margin: 6px 0 8px 18px;
         padding: 0;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 16px 12px 30px;
+        }
+
+        h1 {
+            font-size: 23px;
+        }
+
+        .card {
+            padding: 15px;
+        }
+
+        .status {
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .actions {
+            flex-direction: column;
+        }
+
+        button {
+            width: 100%;
+        }
     }
 
     @media print {
@@ -243,20 +281,20 @@
         .card {
             break-inside: avoid;
             page-break-inside: avoid;
-            border: 1px solid #aaa;
-            padding: 15px;
-            margin-bottom: 12px;
-        }
-
-        textarea {
-            border: 1px solid #aaa;
-            min-height: 55px;
+            border: 1px solid #aaaaaa;
+            padding: 14px;
+            margin-bottom: 10px;
         }
 
         .tag {
-            border: 1px solid #aaa;
-            background: white;
-            color: #333;
+            border: 1px solid #aaaaaa;
+            background: #ffffff;
+            color: #333333;
+        }
+
+        textarea {
+            border: 1px solid #aaaaaa;
+            min-height: 55px;
         }
 
         .result {
@@ -280,12 +318,14 @@
 
 <div id="checklist">
 
-    <!-- 1. Треугольник ликвидности -->
+    <!-- 1 -->
     <div class="card" data-title="Треугольник ликвидности">
+
         <h2>1. Треугольник ликвидности</h2>
 
         <div class="accounts">
-            <strong>Смотрите счета:</strong> 10, 41, 43, 60.01, 62.01, 90.01, 51
+            <strong>Смотрите счета:</strong>
+            10, 41, 43, 60.01, 62.01, 90.01, 51
         </div>
 
         <div class="industry-row">
@@ -299,45 +339,73 @@
         <div class="check-title">Что проверить</div>
 
         <ul class="check-list">
+
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Сравните темпы роста выручки, запасов и дебиторской задолженности за несколько периодов.</span>
+                    <span>
+                        Сравните темпы роста выручки, запасов и дебиторской задолженности
+                        за несколько периодов.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Проверьте, компенсирует ли рост кредиторской задолженности увеличение запасов и дебиторки.</span>
+                    <span>
+                        Проверьте, компенсирует ли рост кредиторской задолженности
+                        увеличение запасов и дебиторки.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Определите, не требует ли каждый новый рубль выручки больше оборотного финансирования, чем раньше.</span>
+                    <span>
+                        Определите, не требует ли каждый новый рубль выручки
+                        больше оборотного финансирования, чем раньше.
+                    </span>
                 </label>
             </li>
+
         </ul>
 
         <div class="status">
+
             <div class="status-title">Результат проверки</div>
-            <label><input type="radio" name="s1" value="ok"> Норма</label>
-            <label><input type="radio" name="s1" value="warning"> Требует проверки</label>
-            <label><input type="radio" name="s1" value="risk"> Риск</label>
+
+            <label>
+                <input type="radio" name="s1" value="ok">
+                Норма
+            </label>
+
+            <label>
+                <input type="radio" name="s1" value="warning">
+                Требует проверки
+            </label>
+
+            <label>
+                <input type="radio" name="s1" value="risk">
+                Риск
+            </label>
+
         </div>
 
         <textarea placeholder="Комментарий"></textarea>
+
     </div>
 
 
-    <!-- 2. Качели ликвидности -->
+    <!-- 2 -->
     <div class="card" data-title="Качели ликвидности">
+
         <h2>2. Качели ликвидности</h2>
 
         <div class="accounts">
-            <strong>Смотрите счета:</strong> 01, 07, 08, 60, 76, 66, 67
+            <strong>Смотрите счета:</strong>
+            01, 07, 08, 60, 76, 66, 67
         </div>
 
         <div class="industry-row">
@@ -352,45 +420,74 @@
         <div class="check-title">Что проверить</div>
 
         <ul class="check-list">
+
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Сопоставьте рост вложений в долгосрочные активы с ростом краткосрочных кредитов, лизинга и задолженности перед подрядчиками.</span>
+                    <span>
+                        Сопоставьте рост вложений в долгосрочные активы
+                        с ростом краткосрочных кредитов, лизинга и задолженности
+                        перед подрядчиками.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Сравните сроки погашения обязательств со сроком ввода актива в эксплуатацию.</span>
+                    <span>
+                        Сравните сроки погашения обязательств со сроком ввода актива
+                        в эксплуатацию.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Проверьте, начнет ли актив генерировать денежный поток до того, как компании придется возвращать финансирование.</span>
+                    <span>
+                        Проверьте, начнет ли актив приносить денежный эффект
+                        до того, как компании придется возвращать финансирование.
+                    </span>
                 </label>
             </li>
+
         </ul>
 
         <div class="status">
+
             <div class="status-title">Результат проверки</div>
-            <label><input type="radio" name="s2" value="ok"> Норма</label>
-            <label><input type="radio" name="s2" value="warning"> Требует проверки</label>
-            <label><input type="radio" name="s2" value="risk"> Риск</label>
+
+            <label>
+                <input type="radio" name="s2" value="ok">
+                Норма
+            </label>
+
+            <label>
+                <input type="radio" name="s2" value="warning">
+                Требует проверки
+            </label>
+
+            <label>
+                <input type="radio" name="s2" value="risk">
+                Риск
+            </label>
+
         </div>
 
         <textarea placeholder="Комментарий"></textarea>
+
     </div>
 
 
-    <!-- 3. Петля обязательств -->
+    <!-- 3 -->
     <div class="card" data-title="Петля обязательств">
+
         <h2>3. Петля обязательств</h2>
 
         <div class="accounts">
-            <strong>Смотрите счета:</strong> 51, 60, 66, 67, 68, 69, 70
+            <strong>Смотрите счета:</strong>
+            51, 60, 66, 67, 68, 69, 70
         </div>
 
         <div class="industry-row">
@@ -405,45 +502,75 @@
         <div class="check-title">Что проверить</div>
 
         <ul class="check-list">
+
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Посмотрите, не переносятся ли платежи поставщикам, налогам и другим обязательствам систематически на последние допустимые даты.</span>
+                    <span>
+                        Посмотрите, не переносятся ли платежи поставщикам,
+                        налогам и другим обязательствам систематически
+                        на последние допустимые даты.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Сопоставьте даты крупных поступлений с датами погашения обязательств и определите, какие платежи зависят от конкретного клиента или банковского транша.</span>
+                    <span>
+                        Сопоставьте даты крупных поступлений с датами погашения обязательств
+                        и определите, какие платежи зависят от конкретного клиента
+                        или банковского транша.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Оцените, сможет ли компания пройти следующий платежный цикл, если крупное поступление сдвинется.</span>
+                    <span>
+                        Оцените, сможет ли компания пройти следующий платежный цикл,
+                        если крупное поступление сдвинется.
+                    </span>
                 </label>
             </li>
+
         </ul>
 
         <div class="status">
+
             <div class="status-title">Результат проверки</div>
-            <label><input type="radio" name="s3" value="ok"> Норма</label>
-            <label><input type="radio" name="s3" value="warning"> Требует проверки</label>
-            <label><input type="radio" name="s3" value="risk"> Риск</label>
+
+            <label>
+                <input type="radio" name="s3" value="ok">
+                Норма
+            </label>
+
+            <label>
+                <input type="radio" name="s3" value="warning">
+                Требует проверки
+            </label>
+
+            <label>
+                <input type="radio" name="s3" value="risk">
+                Риск
+            </label>
+
         </div>
 
         <textarea placeholder="Комментарий"></textarea>
+
     </div>
 
 
-    <!-- 4. Налоговые ножницы -->
+    <!-- 4 -->
     <div class="card" data-title="Налоговые ножницы">
+
         <h2>4. Налоговые ножницы</h2>
 
         <div class="accounts">
-            <strong>Смотрите счета:</strong> 60.02, 62.02, 68 и субсчета учета НДС по авансам
+            <strong>Смотрите счета:</strong>
+            60.02, 62.02, 68 и субсчета учета НДС по авансам
         </div>
 
         <div class="industry-row">
@@ -457,45 +584,73 @@
         <div class="check-title">Что проверить</div>
 
         <ul class="check-list">
+
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Сопоставьте полученные и выданные авансы по крупным контрактам.</span>
+                    <span>
+                        Сопоставьте полученные и выданные авансы
+                        по крупным контрактам.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Проверьте, по каким полученным авансам НДС уже начислен, а по выданным авансам встречный вычет еще не заявлен.</span>
+                    <span>
+                        Проверьте, по каким полученным авансам НДС уже начислен,
+                        а по выданным авансам встречный вычет еще не заявлен.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Рассчитайте сумму НДС, которую компания временно финансирует из собственных средств, и срок такого отвлечения ликвидности.</span>
+                    <span>
+                        Рассчитайте сумму НДС, которую компания временно финансирует
+                        из собственных средств, и срок такого отвлечения ликвидности.
+                    </span>
                 </label>
             </li>
+
         </ul>
 
         <div class="status">
+
             <div class="status-title">Результат проверки</div>
-            <label><input type="radio" name="s4" value="ok"> Норма</label>
-            <label><input type="radio" name="s4" value="warning"> Требует проверки</label>
-            <label><input type="radio" name="s4" value="risk"> Риск</label>
+
+            <label>
+                <input type="radio" name="s4" value="ok">
+                Норма
+            </label>
+
+            <label>
+                <input type="radio" name="s4" value="warning">
+                Требует проверки
+            </label>
+
+            <label>
+                <input type="radio" name="s4" value="risk">
+                Риск
+            </label>
+
         </div>
 
         <textarea placeholder="Комментарий"></textarea>
+
     </div>
 
 
-    <!-- 5. Воронка незавершенки -->
+    <!-- 5 -->
     <div class="card" data-title="Воронка незавершенки">
+
         <h2>5. Воронка незавершенки</h2>
 
         <div class="accounts">
-            <strong>Смотрите счета:</strong> 20, 23, 25, 26, 43, 90.02
+            <strong>Смотрите счета:</strong>
+            20, 23, 25, 26, 43, 90.02
         </div>
 
         <div class="industry-row">
@@ -510,45 +665,75 @@
         <div class="check-title">Что проверить</div>
 
         <ul class="check-list">
+
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Сравните динамику НЗП с выпуском продукции, закрытыми этапами работ и обычной продолжительностью производственного цикла.</span>
+                    <span>
+                        Сравните динамику НЗП с выпуском продукции,
+                        закрытыми этапами работ и обычной продолжительностью
+                        производственного цикла.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Раскройте существенные остатки по заказам или проектам и определите, какие из них превышают нормативный срок завершения.</span>
+                    <span>
+                        Раскройте существенные остатки по заказам или проектам
+                        и определите, какие из них превышают нормативный срок завершения.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Отделите реальные производственные проблемы от учетных: проверьте документы выпуска, аналитику по объектам учета и корректность распределения расходов.</span>
+                    <span>
+                        Отделите реальные производственные проблемы от учетных:
+                        проверьте документы выпуска, аналитику по объектам учета
+                        и корректность распределения расходов.
+                    </span>
                 </label>
             </li>
+
         </ul>
 
         <div class="status">
+
             <div class="status-title">Результат проверки</div>
-            <label><input type="radio" name="s5" value="ok"> Норма</label>
-            <label><input type="radio" name="s5" value="warning"> Требует проверки</label>
-            <label><input type="radio" name="s5" value="risk"> Риск</label>
+
+            <label>
+                <input type="radio" name="s5" value="ok">
+                Норма
+            </label>
+
+            <label>
+                <input type="radio" name="s5" value="warning">
+                Требует проверки
+            </label>
+
+            <label>
+                <input type="radio" name="s5" value="risk">
+                Риск
+            </label>
+
         </div>
 
         <textarea placeholder="Комментарий"></textarea>
+
     </div>
 
 
-    <!-- 6. Лифт прибыли -->
+    <!-- 6 -->
     <div class="card" data-title="Лифт прибыли">
+
         <h2>6. Лифт прибыли</h2>
 
         <div class="accounts">
-            <strong>Смотрите счета:</strong> 04, 08, 97, 20, 26, 44, 90.02, 99
+            <strong>Смотрите счета:</strong>
+            04, 08, 97, 20, 26, 44, 90.02, 99
         </div>
 
         <div class="industry-row">
@@ -557,55 +742,90 @@
             <span class="tag">Телеком</span>
             <span class="tag">Технологические компании</span>
             <span class="tag">Производство</span>
-            <span class="tag">R&D</span>
+            <span class="tag">R&amp;D</span>
         </div>
 
         <div class="check-title">Что проверить</div>
 
         <ul class="check-list">
+
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Сравните динамику текущих расходов и остатков по счетам 04, 08 и 97.</span>
+                    <span>
+                        Сравните динамику текущих расходов
+                        и остатков по счетам 04, 08 и 97.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Проверьте, не начали ли одинаковые по экономическому содержанию затраты капитализировать вместо списания в расходы периода.</span>
+                    <span>
+                        Проверьте, не начали ли одинаковые по экономическому содержанию
+                        затраты капитализировать вместо списания в расходы периода.
+                    </span>
                 </label>
             </li>
 
             <li>
                 <label>
                     <input type="checkbox">
-                    <span>Оцените, какую часть роста прибыли обеспечили операционные улучшения, а какую — перенос затрат на будущие периоды.</span>
+                    <span>
+                        Оцените, какую часть роста прибыли обеспечили
+                        операционные улучшения, а какую — перенос затрат
+                        на будущие периоды.
+                    </span>
                 </label>
             </li>
+
         </ul>
 
         <div class="status">
+
             <div class="status-title">Результат проверки</div>
-            <label><input type="radio" name="s6" value="ok"> Норма</label>
-            <label><input type="radio" name="s6" value="warning"> Требует проверки</label>
-            <label><input type="radio" name="s6" value="risk"> Риск</label>
+
+            <label>
+                <input type="radio" name="s6" value="ok">
+                Норма
+            </label>
+
+            <label>
+                <input type="radio" name="s6" value="warning">
+                Требует проверки
+            </label>
+
+            <label>
+                <input type="radio" name="s6" value="risk">
+                Риск
+            </label>
+
         </div>
 
         <textarea placeholder="Комментарий"></textarea>
+
     </div>
 
 </div>
 
 
 <div class="actions">
-    <button onclick="generateReport()">Сформировать отчет</button>
-    <button class="secondary" onclick="window.print()">Распечатать / сохранить в PDF</button>
+
+    <button onclick="generateReport()">
+        Сформировать отчет
+    </button>
+
+    <button class="secondary" onclick="window.print()">
+        Распечатать / сохранить в PDF
+    </button>
+
 </div>
 
 
 <div class="result" id="result">
-    Выполните проверки, отметьте результат по каждому блоку и нажмите «Сформировать отчет».
+    Выполните проверки, отметьте результат по каждому блоку
+    и нажмите «Сформировать отчет».
 </div>
 
 
@@ -624,9 +844,14 @@ function generateReport() {
 
     cards.forEach(card => {
 
-        const checkedStatus = card.querySelector('input[type="radio"]:checked');
-        const textarea = card.querySelector("textarea");
-        const title = card.dataset.title;
+        const checkedStatus =
+            card.querySelector('input[type="radio"]:checked');
+
+        const textarea =
+            card.querySelector("textarea");
+
+        const title =
+            card.dataset.title;
 
         if (!checkedStatus) {
             return;
@@ -657,25 +882,32 @@ function generateReport() {
 
         const selectedChecks = [];
 
-        card.querySelectorAll('.check-list input[type="checkbox"]:checked')
+        card
+            .querySelectorAll('.check-list input[type="checkbox"]:checked')
             .forEach(checkbox => {
-                const text = checkbox
+
+                const text =
+                    checkbox
                     .closest("label")
                     .querySelector("span")
                     .textContent
                     .trim();
 
                 selectedChecks.push(text);
+
             });
 
         let checksHtml = "";
 
         if (selectedChecks.length > 0) {
+
             checksHtml = `
                 <div>
                     <strong>Выполнено проверок:</strong>
                     <ul class="result-checks">
-                        ${selectedChecks.map(item => `<li>${escapeHtml(item)}</li>`).join("")}
+                        ${selectedChecks
+                            .map(item => `<li>${escapeHtml(item)}</li>`)
+                            .join("")}
                     </ul>
                 </div>
             `;
@@ -683,33 +915,48 @@ function generateReport() {
 
         details += `
             <div class="result-item">
+
                 <strong>${escapeHtml(title)}</strong><br>
+
                 Статус:
-                <span class="${statusClass}">${statusText}</span>
+                <span class="${statusClass}">
+                    ${statusText}
+                </span>
 
                 ${checksHtml}
 
                 ${
                     textarea.value.trim()
-                    ? `<div><strong>Комментарий:</strong> ${escapeHtml(textarea.value.trim())}</div>`
+                    ? `
+                        <div>
+                            <strong>Комментарий:</strong>
+                            ${escapeHtml(textarea.value.trim())}
+                        </div>
+                      `
                     : ""
                 }
+
             </div>
         `;
+
     });
 
 
     let conclusion = "";
 
     if (risk > 0) {
+
         conclusion = `
             <p>
                 <strong>Приоритет:</strong>
                 сначала разберите участки со статусом «Риск»,
-                затем — сочетания показателей, которые требуют дополнительной проверки.
+                затем — сочетания показателей,
+                которые требуют дополнительной проверки.
             </p>
         `;
+
     } else if (warning > 0) {
+
         conclusion = `
             <p>
                 <strong>Приоритет:</strong>
@@ -717,42 +964,60 @@ function generateReport() {
                 но отдельные участки требуют дополнительного анализа.
             </p>
         `;
+
     } else if (checkedCount > 0) {
+
         conclusion = `
             <p>
-                По отмеченным участкам существенных отклонений не выявлено.
+                По отмеченным участкам существенных отклонений
+                не выявлено.
             </p>
         `;
+
     } else {
+
         conclusion = `
             <p>
                 Отметьте результат хотя бы по одному блоку.
             </p>
         `;
+
     }
 
 
     document.getElementById("result").innerHTML = `
+
         <h2>Результат проверки ОСВ</h2>
 
-        <p class="risk">Риски: ${risk}</p>
-        <p class="warning">Требуют проверки: ${warning}</p>
-        <p class="ok">Без существенных отклонений: ${ok}</p>
+        <p class="risk">
+            Риски: ${risk}
+        </p>
+
+        <p class="warning">
+            Требуют проверки: ${warning}
+        </p>
+
+        <p class="ok">
+            Без существенных отклонений: ${ok}
+        </p>
 
         ${conclusion}
 
         ${details}
     `;
+
 }
 
 
 function escapeHtml(text) {
+
     return text
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
+
 }
 
 </script>
